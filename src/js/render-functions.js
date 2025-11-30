@@ -9,8 +9,8 @@
     captionPosition: "bottom"
   });
 
-  export function createGallery(images) {
-    refs.gallery.innerHTML = images.map(image => (
+  export function createGallery(images, append = false) {
+    const markup = images.map(image => (
       `<li class="gallery-item">
       <div class="gallery-container">
       <div class="gallery">
@@ -39,6 +39,12 @@
     </li>`
 
     )).join('');
+
+    if (append) {
+      refs.gallery.insertAdjacentHTML("beforeend", markup);
+    } else {
+      refs.gallery.innerHTML = markup;
+    };
     lightbox.refresh();
   };
 
@@ -54,4 +60,23 @@
   export function hideLoader() {
     refs.loader.classList.add('hidden');
   };
+
+  export function showLoader2() {
+    refs.loader2.classList.remove('hidden');
+  };
+
+  export function hideLoader2() {
+    refs.loader2.classList.add('hidden');
+  };
+
+  export function showLoadMoreButton() {
+    refs.loadMoreBtn.classList.remove('hidden');
+  };
+
+  export function hideLoadMoreButton() {
+    refs.loadMoreBtn.classList.add('hidden');
+  };
+
+
+
 

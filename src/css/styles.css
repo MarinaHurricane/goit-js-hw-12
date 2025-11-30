@@ -39,8 +39,6 @@ input:placeholder-shown {
   color: #2E2F42;
 }
 
-
-
 button {
   border-radius: 8px;
   padding: 8px 16px;
@@ -65,14 +63,13 @@ button:hover {
   gap: 24px;
   max-width: 1128px;
   margin: 0 auto;
+  margin-bottom: 32px;
 }
 
 .gallery-item {
   display: flex;
   flex-direction: column;
   flex-basis: calc((100% - 48px) / 3);
-
-
   height: 200px;
   border: 1px solid #808080;
 }
@@ -177,3 +174,38 @@ img {
   align-items: center;
   justify-content: center;
 }
+
+.load-more {
+    margin: 0 auto;
+    margin-bottom: 32px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 125px;
+    height: 40px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+    background-color: #4E75FF;
+    border: none;
+  }
+  
+  .load-more:hover {
+    background-color: #6C8CFF;
+  }
+
+  .js-end-result {
+    color: red;
+    margin: 0 auto;
+    margin-bottom: 32px;
+    font-size: 20px;
+  }
+
+  .load-container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    /* align-items: center; */
+    margin: 0 auto;
+  }
