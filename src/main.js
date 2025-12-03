@@ -54,8 +54,6 @@ refs.form.addEventListener('submit', async e => {
       }
       createGallery(result.hits);
       totalPages = Math.ceil(result.totalHits / PER_PAGE);
-      console.log(totalPages);
-      // console.log(markup);
       handleLoadMoreBtn();
   
     } catch {
@@ -95,7 +93,15 @@ refs.form.addEventListener('submit', async e => {
       }
       handleLoadMoreBtn();
       createGallery(result.hits, true);
-      scrollNewItems(refs.gallery, 2);
+          
+      let elem = refs.gallery.firstElementChild;
+      let rect = elem.getBoundingClientRect();
+      const heightToScroll = rect.height * 2;
+
+      window.scrollBy({
+        top: heightToScroll,
+        behavior: "smooth",
+      });
     } catch {
       iziToast.show({
           message: `Something went wrong. Please try again later.`,
@@ -122,69 +128,7 @@ refs.form.addEventListener('submit', async e => {
   };
 
 
-// // Get the first <li> element
-// const galleryItem = refs.gallery.firstElementChild;
 
-// if (galleryItem) {
-//   // Measure height
-//   const height = galleryItem.getBoundingClientRect().height;
-
-//   // Get container gap (optional)
-//   const gap = parseInt(getComputedStyle(refs.gallery).gap) || 0;
-
-//   // Scroll down by 2 items
-//   window.scrollBy({
-//     top: (height + gap) * 2,
-//     left: 0,
-//     behavior: 'smooth'
-//   });
-// }
-
-
-// function scrollNewItems(gallery, count) {
-//   if (!gallery) return;
-
-//   // All <li> elements in the gallery
-//   const allItems = gallery.querySelectorAll('li');
-//   const totalItems = allItems.length;
-//   if (totalItems === 0) return;
-
-//   // First of the newly added items (assume last 'count' items are new)
-//   const firstNewIndex = Math.max(totalItems - count, 0);
-//   const galleryItem = allItems[firstNewIndex];
-//   if (!galleryItem) return;
-
-//   // Measure height of the element
-//   const rect = galleryItem.getBoundingClientRect();
-
-//   // Get vertical gap from the gallery container
-//   const gap = parseInt(getComputedStyle(gallery).gap) || 0;
-
-//   // Scroll down by the height of 'count' items
-//   window.scrollBy({
-//     top: (rect.height + gap) * count,
-//     left: 0,
-//     behavior: 'smooth'
-//   });
-// }
-
-
-let elem = refs.gallery.firstElementChild;
-let rect = elem.getBoundingClientRect();
-for (const key in rect) {
-  if (typeof rect[key] !== "function") {
-    let para = document.createElement("p");
-    para.textContent = `${key} : ${rect[key]}`;
-    document.body.appendChild(para);
-    console.log(para);
-  }
-}
-
-window.scrollBy({
-  top: 100,
-  left: 100,
-  behavior: "smooth",
-});
 
 
 

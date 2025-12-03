@@ -13,7 +13,6 @@ import axios from 'axios';
             page: currentPage,
     }
    });
-   console.log(result.data);
    return result.data;
 } catch (error) {
     console.log(error);
