@@ -162,13 +162,13 @@ img {
   display: none;
 }
 
-.iziToast {
+/* .iziToast {
   position: fixed !important;
   font-weight: 400;
   line-height: 44px;
   letter-spacing: 0.03em;
   color: #fafafb;
-}
+} */
 
 .load-more {
     margin: 0 auto;
