@@ -43,7 +43,6 @@ refs.form.addEventListener('submit', async e => {
       if(!result.hits || result.hits.length === 0) {
         iziToast.show({
           message: `Sorry, there are no images matching your search query. Please try again!`,
-          iconUrl: '/img/bi_x-octagon.svg',
           color: '#EF4040',
           position: 'topRight',
           messageSize: '20',
@@ -62,7 +61,6 @@ refs.form.addEventListener('submit', async e => {
     } catch {
       iziToast.show({
           message: `Something went wrong. Please try again later.`,
-          iconUrl: octagonIcon,
           color: '#EF4040',
           position: 'topRight',
           messageSize: '20',
@@ -86,7 +84,6 @@ refs.form.addEventListener('submit', async e => {
       if(!result.hits || result.hits.length === 0) {
         iziToast.show({
           message: `Sorry, there are no images matching your search query. Please try again!`,
-          iconUrl: './img/bi_x-octagon.svg',
           color: '#EF4040',
           position: 'topRight',
           messageSize: '20',
@@ -110,7 +107,6 @@ refs.form.addEventListener('submit', async e => {
     } catch {
       iziToast.show({
           message: `Something went wrong. Please try again later.`,
-          // iconUrl: './img/bi_x-octagon.svg',
           color: '#EF4040',
           position: 'topRight',
           messageSize: '20',
@@ -130,7 +126,6 @@ refs.form.addEventListener('submit', async e => {
       hideLoadMoreButton();
       iziToast.show({
         message: `We're sorry, but you've reached the end of search results.`,
-        // iconUrl: './img/bi_x-octagon.svg',
         backgroundColor: '#3b82f6',
         position: 'topRight',
         messageSize: '20',
