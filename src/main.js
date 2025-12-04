@@ -25,7 +25,7 @@ refs.form.addEventListener('submit', async e => {
     if(!query) {
       iziToast.show({
         message: `Type something to begin your search.`,
-        backgroundColor: '#EF4040',
+        color: 'red',
         messageColor: 'white',
         position: 'topRight',
         messageSize: '20',
@@ -42,7 +42,7 @@ refs.form.addEventListener('submit', async e => {
       if(!result.hits || result.hits.length === 0) {
         iziToast.show({
           message: `Sorry, there are no images matching your search query. Please try again!`,
-          color: '#EF4040',
+          color: 'red',
           position: 'topRight',
           messageSize: '20',
           timeout: '4000',
@@ -59,7 +59,7 @@ refs.form.addEventListener('submit', async e => {
     } catch {
       iziToast.show({
           message: `Something went wrong. Please try again later.`,
-          color: '#EF4040',
+          color: 'red',
           position: 'topRight',
           messageSize: '20',
           timeout: '4000',
@@ -82,7 +82,7 @@ refs.form.addEventListener('submit', async e => {
       if(!result.hits || result.hits.length === 0) {
         iziToast.show({
           message: `Sorry, there are no images matching your search query. Please try again!`,
-          color: '#EF4040',
+          color: 'red',
           position: 'topRight',
           messageSize: '20',
           timeout: '4000',
@@ -105,7 +105,7 @@ refs.form.addEventListener('submit', async e => {
     } catch {
       iziToast.show({
           message: `Something went wrong. Please try again later.`,
-          color: '#EF4040',
+          color: 'red',
           position: 'topRight',
           messageSize: '20',
           timeout: '4000',
@@ -124,7 +124,7 @@ refs.form.addEventListener('submit', async e => {
       hideLoadMoreButton();
       iziToast.show({
         message: `We're sorry, but you've reached the end of search results.`,
-        backgroundColor: '#3b82f6',
+        color: 'blue',
         position: 'topRight',
         messageSize: '20',
         timeout: '4000',
