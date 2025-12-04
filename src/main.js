@@ -6,6 +6,7 @@ import { getImagesByQuery } from './js/pixabay-api';
 import { createGallery } from './js/render-functions';
 import { showLoadMoreButton } from './js/render-functions';
 import { hideLoadMoreButton } from './js/render-functions';
+import octagonIcon from './img/bi_x-octagon.svg';
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
@@ -48,8 +49,10 @@ refs.form.addEventListener('submit', async e => {
           messageSize: '20',
           timeout: '4000',
           theme: 'dark',
+          class: 'custom-toast',
         }); 
         hideLoader();
+        refs.form.reset();
         return;
       }
       createGallery(result.hits);
@@ -59,7 +62,7 @@ refs.form.addEventListener('submit', async e => {
     } catch {
       iziToast.show({
           message: `Something went wrong. Please try again later.`,
-          iconUrl: './img/bi_x-octagon.svg',
+          iconUrl: octagonIcon,
           color: '#EF4040',
           position: 'topRight',
           messageSize: '20',
@@ -89,23 +92,25 @@ refs.form.addEventListener('submit', async e => {
           messageSize: '20',
           timeout: '4000',
           theme: 'dark',
-        });
+        }); 
+        refs.form.reset();
+        return;
       }
       handleLoadMoreBtn();
       createGallery(result.hits, true);
           
-      let elem = refs.gallery.firstElementChild;
-      let rect = elem.getBoundingClientRect();
-      const heightToScroll = rect.height * 2;
-
-      window.scrollBy({
-        top: heightToScroll,
-        behavior: "smooth",
-      });
+      if (refs.gallery.firstElementChild) {
+        const rect = refs.gallery.firstElementChild.getBoundingClientRect();
+        const heightToScroll = rect.height * 2;
+        window.scrollBy({ 
+           top: heightToScroll,
+           behavior: "smooth" });
+        };
+      
     } catch {
       iziToast.show({
           message: `Something went wrong. Please try again later.`,
-          iconUrl: './img/bi_x-octagon.svg',
+          // iconUrl: './img/bi_x-octagon.svg',
           color: '#EF4040',
           position: 'topRight',
           messageSize: '20',
@@ -125,7 +130,7 @@ refs.form.addEventListener('submit', async e => {
       hideLoadMoreButton();
       iziToast.show({
         message: `We're sorry, but you've reached the end of search results.`,
-        iconUrl: './img/bi_x-octagon.svg',
+        // iconUrl: './img/bi_x-octagon.svg',
         backgroundColor: '#3b82f6',
         position: 'topRight',
         messageSize: '20',

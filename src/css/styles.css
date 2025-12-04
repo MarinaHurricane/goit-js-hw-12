@@ -164,15 +164,18 @@ img {
 
 .iziToast {
   position: fixed !important;
-  width: 432px;
-  height: 50px;
   font-weight: 400;
-  font-size: 16px;
   line-height: 44px;
   letter-spacing: 0.03em;
   color: #fafafb;
-  align-items: center;
-  justify-content: center;
+}
+
+.custom-toast {
+  width: 500px;
+  height: 70px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .load-more {
