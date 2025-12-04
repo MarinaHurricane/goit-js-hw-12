@@ -126,7 +126,7 @@ refs.form.addEventListener('submit', async e => {
       iziToast.show({
         message: `We're sorry, but you've reached the end of search results.`,
         iconUrl: './img/bi_x-octagon.svg',
-        color: 'blue',
+        backgroundColor: '#3b82f6',
         position: 'topRight',
         messageSize: '20',
         timeout: '4000',
