@@ -43,7 +43,7 @@ refs.form.addEventListener('submit', async e => {
       if(!result.hits || result.hits.length === 0) {
         iziToast.show({
           message: `Sorry, there are no images matching your search query. Please try again!`,
-          iconUrl: './img/bi_x-octagon.svg',
+          iconUrl: '/img/bi_x-octagon.svg',
           color: '#EF4040',
           position: 'topRight',
           messageSize: '20',
