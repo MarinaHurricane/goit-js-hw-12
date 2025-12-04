@@ -6,7 +6,6 @@ import { getImagesByQuery } from './js/pixabay-api';
 import { createGallery } from './js/render-functions';
 import { showLoadMoreButton } from './js/render-functions';
 import { hideLoadMoreButton } from './js/render-functions';
-import octagonIcon from './img/bi_x-octagon.svg';
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
@@ -26,7 +25,7 @@ refs.form.addEventListener('submit', async e => {
     if(!query) {
       iziToast.show({
         message: `Type something to begin your search.`,
-        color: '#EF4040',
+        backgroundColor: '#EF4040',
         messageColor: 'white',
         position: 'topRight',
         messageSize: '20',
@@ -48,7 +47,6 @@ refs.form.addEventListener('submit', async e => {
           messageSize: '20',
           timeout: '4000',
           theme: 'dark',
-          class: 'custom-toast',
         }); 
         hideLoader();
         refs.form.reset();
