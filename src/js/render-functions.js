@@ -61,16 +61,9 @@
     refs.loader.classList.add('hidden');
   };
 
-  export function showLoader2() {
-    refs.loader2.classList.remove('hidden');
-  };
-
-  export function hideLoader2() {
-    refs.loader2.classList.add('hidden');
-  };
-
   export function showLoadMoreButton() {
     refs.loadMoreBtn.classList.remove('hidden');
+
   };
 
   export function hideLoadMoreButton() {

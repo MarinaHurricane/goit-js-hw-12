@@ -2,8 +2,6 @@ import { refs } from './js/refs';
 import { clearGallery } from './js/render-functions';
 import { showLoader } from './js/render-functions';
 import { hideLoader } from './js/render-functions';
-import { showLoader2 } from './js/render-functions';
-import { hideLoader2 } from './js/render-functions';
 import { getImagesByQuery } from './js/pixabay-api';
 import { createGallery } from './js/render-functions';
 import { showLoadMoreButton } from './js/render-functions';
@@ -50,7 +48,9 @@ refs.form.addEventListener('submit', async e => {
           messageSize: '20',
           timeout: '4000',
           theme: 'dark',
-        }); return;
+        }); 
+        hideLoader();
+        return;
       }
       createGallery(result.hits);
       totalPages = Math.ceil(result.totalHits / PER_PAGE);
@@ -74,7 +74,7 @@ refs.form.addEventListener('submit', async e => {
 
 
   refs.loadMoreBtn.addEventListener('click', async () => {
-    showLoader2();
+    showLoader();
     hideLoadMoreButton();
     currentPage += 1;
   
@@ -113,7 +113,7 @@ refs.form.addEventListener('submit', async e => {
           theme: 'dark',
         });
     };
-    hideLoader2();
+    hideLoader();
     refs.form.reset();
   });
 
@@ -123,7 +123,15 @@ refs.form.addEventListener('submit', async e => {
       showLoadMoreButton();
     } else {
       hideLoadMoreButton();
-      refs.endResults.textContent = `We're sorry, but you've reached the end of search results.`
+      iziToast.show({
+        message: `We're sorry, but you've reached the end of search results.`,
+        iconUrl: './img/bi_x-octagon.svg',
+        color: '#89CFF0',
+        position: 'topRight',
+        messageSize: '20',
+        timeout: '4000',
+        theme: 'dark',
+      });
     };
   };
 
